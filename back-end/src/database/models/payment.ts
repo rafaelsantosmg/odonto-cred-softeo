@@ -1,4 +1,12 @@
-import { Model, INTEGER, STRING, REAL, BOOLEAN, DATEONLY, NOW } from 'sequelize';
+import {
+  Model,
+  INTEGER,
+  STRING,
+  REAL,
+  BOOLEAN,
+  DATEONLY,
+  NOW,
+} from 'sequelize';
 import db from '.';
 import Patient from './patient';
 
