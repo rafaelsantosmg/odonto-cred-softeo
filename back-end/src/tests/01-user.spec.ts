@@ -61,50 +61,50 @@ describe('Testa as rotas de Users', () => {
       });
     });
 
-    // describe('Testa se a requisição foi feita com dados inválidos', () => {
-    //   before(async () => {
-    //     sinon.stub(User, 'findOne').resolves(null);
-    //   });
+    describe('Testa se a requisição foi feita com dados inválidos', () => {
+      before(async () => {
+        sinon.stub(User, 'findOne').resolves(null);
+      });
 
-    //   after(() => {
-    //     (User.findOne as sinon.SinonStub).restore();
-    //   });
+      after(() => {
+        (User.findOne as sinon.SinonStub).restore();
+      });
 
-    //   it('Testa se usuario é not found e status é 400', async () => {
-    //     chaiHttpResponse = await chai
-    //       .request(api)
-    //       .post('/users')
-    //       .send({ email: 'an@admin.com', password: '--@65erika@99--' });
+      it('Testa se usuario é not found e status é 400', async () => {
+        chaiHttpResponse = await chai
+          .request(api)
+          .post('/users')
+          .send({ email: 'an@admin.com', password: '--@65erika@99--' });
 
-    //     expect(chaiHttpResponse.status).to.be.equal(401);
-    //   });
+        expect(chaiHttpResponse.status).to.be.equal(400);
+      });
 
-    //   it('Testa se password é incorrect e status é 400', async () => {
-    //     chaiHttpResponse = await chai
-    //       .request(api)
-    //       .post('/users')
-    //       .send({ email: 'erika@odontocred.com.br', password: 'admin' });
+      it('Testa se password é incorrect e status é 400', async () => {
+        chaiHttpResponse = await chai
+          .request(api)
+          .post('/users')
+          .send({ email: 'erika@odontocred.com.br', password: 'admin' });
 
-    //     expect(chaiHttpResponse.status).to.be.equal(401);
-    //   });
+        expect(chaiHttpResponse.status).to.be.equal(400);
+      });
 
-    //   it('Testa se não for passado email o status é 401', async () => {
-    //     chaiHttpResponse = await chai
-    //       .request(api)
-    //       .post('/users')
-    //       .send({ password: 'admin' });
+      it('Testa se não for passado email o status é 400', async () => {
+        chaiHttpResponse = await chai
+          .request(api)
+          .post('/users')
+          .send({ password: 'admin' });
 
-    //     expect(chaiHttpResponse.status).to.be.equal(400);
-    //   });
+        expect(chaiHttpResponse.status).to.be.equal(400);
+      });
 
-    //   it('Testa se não for passado password o status é 401', async () => {
-    //     chaiHttpResponse = await chai
-    //       .request(api)
-    //       .post('/users')
-    //       .send({ email: 'erika@odontocred.com.br' });
+      it('Testa se não for passado password o status é 400', async () => {
+        chaiHttpResponse = await chai
+          .request(api)
+          .post('/users')
+          .send({ email: 'erika@odontocred.com.br' });
 
-    //     expect(chaiHttpResponse.status).to.be.equal(400);
-    //   });
-    // });
+        expect(chaiHttpResponse.status).to.be.equal(400);
+      });
+    });
   });
 });
