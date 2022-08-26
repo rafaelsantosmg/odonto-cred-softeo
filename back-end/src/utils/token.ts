@@ -1,7 +1,7 @@
 import { readFileSync } from 'fs';
 import jwt from 'jsonwebtoken';
 
-const SECRET_KEY = readFileSync('/.private.key');
+const SECRET_KEY = readFileSync('./.private.key');
 
 export const createToken = (user: object | boolean) => {
   return jwt.sign({ user }, SECRET_KEY, {
