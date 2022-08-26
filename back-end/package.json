@@ -34,7 +34,6 @@
     "eslint-plugin-import": "^2.26.0",
     "mocha": "^10.0.0",
     "nyc": "15.1.0",
-    "prettier": "^2.7.1",
     "sequelize-cli": "^6.4.1",
     "sinon": "^14.0.0",
     "ts-node": "^10.9.1",
