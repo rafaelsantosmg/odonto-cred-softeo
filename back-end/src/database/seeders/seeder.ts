@@ -7,9 +7,9 @@ module.exports = {
       [
         {
           username: 'Erika',
-          email: 'erika@odontocred.com.br',
+          email: 'erika@odontolab.com.br',
           password:
-            '$2a$10$Z/RlmiIf3O8zeBWJ7c0Pv.8oWh.CGWplRgXBxmnvNabUbhONTp3YS', // --@65erika@99--
+            '$2a$10$YWK4y3zhtTAxSr/ngGii.uUSfUCi0LawTKGnKnCD/OzRdHIwxHgu.', // 123456
         },
       ],
       {}

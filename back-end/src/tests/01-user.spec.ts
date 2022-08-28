@@ -29,7 +29,7 @@ describe('Testa as rotas de Users', () => {
       it('Testa se User foi feito com sucesso!', async () => {
         chaiHttpResponse = await chai.request(api).post('/users').send({
           username: 'Erika',
-          email: 'erika@odontocred.com.br',
+          email: 'erika@odontolab.com.br',
           password: '--@65erika@99--',
         });
 
@@ -52,7 +52,7 @@ describe('Testa as rotas de Users', () => {
       it('Testa se não é possivel criar um usuário que ja exista!', async () => {
         chaiHttpResponse = await chai.request(api).post('/users').send({
           username: 'Erika',
-          email: 'erika@odontocred.com.br',
+          email: 'erika@odontolab.com.br',
           password: '--@65erika@99--',
         });
 
@@ -83,7 +83,7 @@ describe('Testa as rotas de Users', () => {
         chaiHttpResponse = await chai
           .request(api)
           .post('/users')
-          .send({ email: 'erika@odontocred.com.br', password: 'admin' });
+          .send({ email: 'erika@odontolab.com.br', password: 'admin' });
 
         expect(chaiHttpResponse.status).to.be.equal(400);
       });
@@ -101,7 +101,7 @@ describe('Testa as rotas de Users', () => {
         chaiHttpResponse = await chai
           .request(api)
           .post('/users')
-          .send({ email: 'erika@odontocred.com.br' });
+          .send({ email: 'erika@odontolab.com.br' });
 
         expect(chaiHttpResponse.status).to.be.equal(400);
       });
