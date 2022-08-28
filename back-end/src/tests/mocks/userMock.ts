@@ -1,15 +1,8 @@
 export const userFindOne = {
   id: 1,
   username: 'Erika',
-  email: 'erika@odontocred.com.br',
+  email: 'erika@odontolab.com.br',
   password: '$2a$10$Z/RlmiIf3O8zeBWJ7c0Pv.8oWh.CGWplRgXBxmnvNabUbhONTp3YS',
-};
-
-export const userIncorrecPassword = {
-  id: 2,
-  username: 'Rafael',
-  email: 'rafael@odontocred.com.br',
-  password: '$2a$10$Z/RlmiIf3O8zeBWJ7c0Pv.8oWh.CGWplRgXBxmnvNabUbhONTp4YS',
 };
 
 export const token =

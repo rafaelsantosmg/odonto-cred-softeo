@@ -36,7 +36,7 @@ describe('Testa as rotas de Login', () => {
 
       it('Testa se login foi feito com sucesso!', async () => {
         chaiHttpResponse = await chai.request(api).post('/login').send({
-          email: 'erika@odontocred.com.br',
+          email: 'erika@odontolab.com.br',
           password: '--@65erika@99--',
         });
 
@@ -80,7 +80,7 @@ describe('Testa as rotas de Login', () => {
         chaiHttpResponse = await chai
           .request(api)
           .post('/login')
-          .send({ email: 'erika@odontocred.com.br' });
+          .send({ email: 'erika@odontolab.com.br' });
 
         expect(chaiHttpResponse.status).to.be.equal(400);
       });
@@ -101,7 +101,7 @@ describe('Testa as rotas de Login', () => {
 
       it('Testa se password é inválido e status é 403', async () => {
         chaiHttpResponse = await chai.request(api).post('/login').send({
-          email: 'erika@odontocred.com.br',
+          email: 'erika@odontolab.com.br',
           password: '--@65erika@-',
         });
 

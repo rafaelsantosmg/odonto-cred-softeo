@@ -1,5 +1,5 @@
 {
-  "name": "odonto-cred-back-end",
+  "name": "odonto-lab-back-end",
   "version": "1.0.0",
   "description": "",
   "main": "./src/api/server.ts",
