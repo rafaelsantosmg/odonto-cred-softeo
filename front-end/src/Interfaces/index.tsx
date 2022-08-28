@@ -3,7 +3,7 @@ export interface MainContextProvider {
 }
 
 export interface MainContextData {
-  user: IUser;
+  user: IRegister;
 }
 
 export interface ILogin {
@@ -11,6 +11,7 @@ export interface ILogin {
   password: string;
 }
 
-export interface IUser extends ILogin {
+export interface IRegister extends ILogin {
   username: string;
+  repeatPassword?: string;
 }
