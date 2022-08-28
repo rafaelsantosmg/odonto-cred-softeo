@@ -1,13 +1,13 @@
 import { MDBContainer } from 'mdb-react-ui-kit';
-import FormLogin from './FormLogin';
+import FormLoginRegister from './FormLoginRegister';
 
-export default function Login() {
+export default function LoginRegister() {
   return (
     <MDBContainer
       fluid
       className="d-inline-flex justify-content-center align-items-center vh-100"
     >
-      <FormLogin />
+      <FormLoginRegister />
     </MDBContainer>
   );
 }
