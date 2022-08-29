@@ -8,17 +8,20 @@ import {
   MDBTabsContent,
   MDBTabsPane,
 } from 'mdb-react-ui-kit';
-import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { useState, useContext } from 'react';
 import { useFormik } from 'formik';
 import { AxiosError } from 'axios';
+import Cookie from 'js-cookie';
 import { validationLogin, validationRegister } from '../../utils/formikSchema';
 import { loginRequest, createUser } from '../../api/services/utils';
 import { ILogin, IRegister } from '../../Interfaces';
 import { toastSuccess, toastWarning } from '../../utils/toast';
+import { AppCtx } from '../../Context';
 
 export default function FormLoginRegister() {
-  const navigate = useNavigate();
+  const history = useHistory();
+  const { setToken } = useContext(AppCtx);
 
   const [loginRegisterActive, setLoginRegisterActive] = useState('login');
 
@@ -29,7 +32,8 @@ export default function FormLoginRegister() {
   const handleSubmitLogin = async (data: ILogin) => {
     try {
       await loginRequest(data);
-      navigate('/home');
+      setToken(Cookie.get('token'));
+      history.push('/home');
     } catch (error) {
       const err = (error as AxiosError).response?.status;
       if (err && err === 404) {
@@ -88,6 +92,7 @@ export default function FormLoginRegister() {
       <MDBTabs pills justify className="mb-3">
         <MDBTabsItem>
           <MDBTabsLink
+            data-testid="select-form-login"
             onClick={() => handleLoginRegisterClick('login')}
             active={loginRegisterActive === 'login'}
           >
@@ -96,6 +101,7 @@ export default function FormLoginRegister() {
         </MDBTabsItem>
         <MDBTabsItem>
           <MDBTabsLink
+            data-testid="select-form-register"
             onClick={() => handleLoginRegisterClick('register')}
             active={loginRegisterActive === 'register'}
           >
@@ -108,6 +114,7 @@ export default function FormLoginRegister() {
         <MDBTabsPane show={loginRegisterActive === 'login'}>
           <form onSubmit={login.handleSubmit}>
             <MDBInput
+              data-testid="field_login_input_email"
               className="mb-4"
               type="email"
               id="formEmailLogin"
@@ -121,6 +128,7 @@ export default function FormLoginRegister() {
               <p className="mb-4 fs-6 text-danger">{login.errors.email}</p>
             )}
             <MDBInput
+              data-testid="field_login_input_password"
               className="mb-4"
               type="password"
               id="formPasswordLogin"
@@ -141,6 +149,7 @@ export default function FormLoginRegister() {
         <MDBTabsPane show={loginRegisterActive === 'register'}>
           <form onSubmit={register.handleSubmit}>
             <MDBInput
+              data-testid="field_register_input_username"
               className="mb-4"
               id="formNameRegister"
               label="Nome"
@@ -155,6 +164,7 @@ export default function FormLoginRegister() {
               </p>
             )}
             <MDBInput
+              data-testid="field_register_input_email"
               className="mb-4"
               type="email"
               id="formEmailRegister"
@@ -168,6 +178,7 @@ export default function FormLoginRegister() {
               <p className="mb-4 fs-6 text-danger">{register.errors.email}</p>
             )}
             <MDBInput
+              data-testid="field_register_input_password"
               className="mb-4"
               type="password"
               id="formPasswordRegister"
@@ -183,6 +194,7 @@ export default function FormLoginRegister() {
               </p>
             )}
             <MDBInput
+              data-testid="field_register_input_repeat_password"
               className="mb-4"
               type="password"
               id="formRepeatPasswordRegister"

@@ -1,13 +1,11 @@
-import { BrowserRouter } from 'react-router-dom';
+import MainContext from './Context';
 import Router from './Routes';
 import './App.css';
 
-function App() {
+export default function App() {
   return (
-    <BrowserRouter>
-      <Router />
-    </BrowserRouter>
+    <MainContext>
+      <Router />;
+    </MainContext>
   );
 }
-
-export default App;

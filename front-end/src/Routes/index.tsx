@@ -1,15 +1,21 @@
-import { Route, Routes, Navigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import LoginRegister from '../Pages/LoginRegister';
 import Home from '../Pages/Home';
+import NotFound from '../Pages/NotFound';
+import { AppCtx } from '../Context';
 
-function Router() {
+export default function Router() {
+  const { token } = useContext(AppCtx);
+
   return (
-    <Routes>
-      <Route path="/" element={<Navigate to="/login" replace />} />
-      <Route path="/login" element={<LoginRegister />} />
-      <Route path="/home" element={<Home />} />
-    </Routes>
+    <Switch>
+      <Redirect exact from="/" to="/login" />
+      <Route path="/login">
+        <LoginRegister />
+      </Route>
+      <Route path="/home">{token ? <Home /> : <Redirect to="/login" />}</Route>
+      <Route path="*" component={NotFound} />
+    </Switch>
   );
 }
-
-export default Router;

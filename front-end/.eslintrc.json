@@ -26,9 +26,15 @@
     "@typescript-eslint",
     "prettier"
   ],
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
+  },
   "rules": {
     "semi": 0,
     "no-console": "off",
+    "react/jsx-no-constructed-context-values": "error",
     "react/react-in-jsx-scope": [
       "off"
     ],
