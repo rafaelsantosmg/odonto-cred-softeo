@@ -2,4 +2,3 @@ node_modules
 dist
 /src/database/
 /src/tests/
-/src/coverage
